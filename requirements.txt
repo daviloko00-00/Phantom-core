@@ -1,5 +1,18 @@
+# Dependências principais
 pynput==1.7.6
 cryptography==41.0.7
 paramiko==3.4.0
 colorama==0.4.6
 pyfiglet==0.8.post1
+dnspython==2.4.2
+
+# Dependências para o módulo de phishing
+secure-smtplib==0.1.1
+beautifulsoup4==4.12.2
+lxml==4.9.3
+premailer==3.10.0
+
+# Dependências para interface/segurança
+pyopenssl==23.3.0
+requests==2.31.0
+flask==2.3.2  # Para servidor de rastreamento opcional

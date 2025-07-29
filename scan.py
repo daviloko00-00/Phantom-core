@@ -8,6 +8,7 @@ import keylogger
 import scan_ports
 import leitor_log
 import ssh_automation
+import email_phish
 
 # Inicializa colorama
 init(autoreset=True)
@@ -174,15 +175,16 @@ def print_menu():
     print(Fore.GREEN + "2. " + Fore.WHITE + "Iniciar Keylogger")
     print(Fore.GREEN + "3. " + Fore.WHITE + "Ler logs do Keylogger")
     print(Fore.GREEN + "4. " + Fore.WHITE + "Automação SSH")
-    print(Fore.RED + "5. " + Fore.WHITE + "Sair do programa")
+    print(Fore.GREEN + "5. " + Fore.WHITE + "Phishing via Email")
+    print(Fore.RED + "6. " + Fore.WHITE + "Sair do programa")
     print(Fore.BLUE + "\n" + "="*60 + "\n")
 
 def get_choice():
     """Obtém a escolha do usuário com tratamento de erros"""
     while True:
         try:
-            choice = input(Fore.YELLOW + "\nDigite sua opção (0-5): " + Fore.WHITE)
-            if choice in ['0', '1', '2', '3', '4', '5']:
+            choice = input(Fore.YELLOW + "\nDigite sua opção (0-6): " + Fore.WHITE)
+            if choice in ['0', '1', '2', '3', '4', '5', '6']:
                 return choice
             print(Fore.RED + "\n[ERRO] Opção inválida. Digite um número entre 0 e 5.")
         except KeyboardInterrupt:
@@ -234,8 +236,14 @@ def main():
             print_header()
             print(Fore.CYAN + "\n" + " AUTOMAÇÃO SSH ".center(60, '=') + "\n")
             ssh_automation.ssh_menu()
+
+        elif choice == '5':  # Nova opção de phishing
+            clear_screen()
+            print_header()
+            print(Fore.CYAN + "\n" + " PHANTOM MAIL ".center(60, '=') + "\n")
+            email_phish.show_phishing_menu()
             
-        elif choice == '5':
+        elif choice == '6':
             clear_screen()
             print_header()
             print(Fore.RED + "\n" + " ENCERRANDO O PROGRAMA ".center(60, '=') + "\n")
