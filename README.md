@@ -20,6 +20,7 @@ Paramiko (para SSH)
 Estrutura pronta para integração com outros módulos (ex: fake_site, keylogger, logger remoto etc.)
 
 git clone https://github.com/daviloko00-00/Phantom-core
+
 cd PhantomCore
 python3 sacn.py // menu principal
 
