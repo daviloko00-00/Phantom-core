@@ -252,7 +252,7 @@ def main():
             print_header()
             print(Fore.CYAN + "\n" + " INICIANDO O FAKE SITE ".center(60, '=') + "\n")
             print(Fore.YELLOW + "[!] Certifique-se de que o servidor Flask está instalado.")
-            fake_site.iniciar_fake_site()
+            fake_site.start_server()
             input("\nPressione Enter para continuar...")
             
 

