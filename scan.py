@@ -12,6 +12,7 @@ import email_phish
 from core import fake_site 
 from core import fake_messages
 
+
 # Inicializa colorama
 init(autoreset=True)
 
@@ -187,9 +188,9 @@ def get_choice():
     while True:
         try:
             choice = input(Fore.YELLOW + "\nDigite sua opção (0-7): " + Fore.WHITE)
-            if choice in ['0', '1', '2', '3', '4', '5', '6', '7']:
+            if choice in ['0', '1', '2', '3', '4', '5', '6', '7', '8']:
                 return choice
-            print(Fore.RED + "\n[ERRO] Opção inválida. Digite um número entre 0 e 7.")
+            print(Fore.RED + "\n[ERRO] Opção inválida. Digite um número entre 0 e 8.")
         except KeyboardInterrupt:
             print(Fore.RED + "\n\nOperação cancelada pelo usuário.")
             return '5'
@@ -254,6 +255,8 @@ def main():
             fake_site.iniciar_fake_site()
             input("\nPressione Enter para continuar...")
             
+
+
         elif choice == '7':
             clear_screen()
             print_header()

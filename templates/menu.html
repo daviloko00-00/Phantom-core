@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Escolha uma plataforma</title>
+</head>
+<body>
+    <h2>Simulador de Engenharia Social</h2>
+    <p>Escolha um template de login:</p>
+    <ul>
+        {% for platform in platforms %}
+        <li><a href="/{{ platform }}">{{ platform|capitalize }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
