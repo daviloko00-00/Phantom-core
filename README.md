@@ -34,6 +34,8 @@ git clone https://github.com/daviloko00-00/Phantom-core
 
 cd PhantomCore
 
+pip install -r requirements.txt
+
 python3 sacn.py // menu principal
 
 Projeto criado por DCS (S1nn3r)
