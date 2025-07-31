@@ -181,7 +181,8 @@ def print_menu():
     print(Fore.GREEN + "4. " + Fore.WHITE + "Automação SSH")
     print(Fore.GREEN + "5. " + Fore.WHITE + "Phishing via Email")
     print(Fore.GREEN + "6. " + Fore.WHITE + "Iniciar Fake Site")
-    print(Fore.GREEN + "7. " + Fore.WHITE + "Sair do programa")
+    print(Fore.GREEN + "7. " + Fore.WHITE + "Ler logs do phishing")
+    print(Fore.GREEN + "8. " + Fore.WHITE + "Sair do programa ")
     print(Fore.BLUE + "\n" + "="*60 + "\n")
 
 def get_choice():
